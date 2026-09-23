@@ -10,9 +10,6 @@ class Solution(object):
         if target < 0:
             return -1
 
-        if target == 0:
-            return len(nums)
-
         left = 0
         current_sum = 0
         max_length = -1
@@ -27,7 +24,4 @@ class Solution(object):
             if current_sum == target:
                 max_length = max(max_length, right - left + 1)
 
-        if max_length == -1:
-            return -1
-
-        return len(nums) - max_length
+        return -1 if max_length == -1 else len(nums) - max_length
