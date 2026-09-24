@@ -4,10 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        for i in range(len(nums)):
-            digit_sum=sum(map(int, str(nums[i])))
-
-            if digit_sum==i:
+        for i,nums in enumerate(nums):
+            s=0
+            while nums:
+                s+=nums%10
+                nums//=10
+            if s==i:
                 return i
-
         return -1
