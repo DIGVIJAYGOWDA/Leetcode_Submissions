@@ -1,16 +1,15 @@
-class Solution(object):
-    def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
-        anagrams={}
-        for s in strs:
-            key=''.join(sorted(s))
+from collections import defaultdict
 
-            if key not in anagrams:
-                anagrams[key]=[]
-            
-            anagrams[key].append(s)
-        
-        return list(anagrams.values())
+class Solution:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+        res = defaultdict(list)
+
+        for s in strs:
+            count = [0] * 26
+
+            for c in s:
+                count[ord(c) - ord('a')] += 1
+
+            res[tuple(count)].append(s)
+
+        return list(res.values())
