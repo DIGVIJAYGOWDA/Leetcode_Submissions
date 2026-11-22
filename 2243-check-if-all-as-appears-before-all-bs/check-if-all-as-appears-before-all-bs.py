@@ -4,7 +4,7 @@ class Solution:
         for i in range(len(s)):
             if s[i]=='b':
                 flag=True
-            elif s[i]=='a' and flag:
+            elif s[i]=='a' and flag: #checks True and False and if the result is False neither block executes
                 return False
                 
         return True
