@@ -1,22 +1,17 @@
 class Solution:
     def longestConsecutive(self, nums: list[int]) -> int:
 
-        my_set = set(nums)
+        num_set = set(nums)
         longest = 0
 
-        for num in my_set:
+        for num in num_set:
 
-            # Identify the starting element of a sequence
-            if num - 1 not in my_set:
-
-                count = 1
+            if num - 1 not in num_set:
                 current = num
 
-                # Count consecutive elements
-                while current + 1 in my_set:
+                while current + 1 in num_set:
                     current += 1
-                    count += 1
 
-                longest = max(longest, count)
+                longest = max(longest, current - num + 1)
 
         return longest
