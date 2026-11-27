@@ -14,4 +14,4 @@ class Solution:
 
                 longest = max(longest, current - num + 1)
 
-        return longest
+        return longest   
